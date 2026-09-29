@@ -1,0 +1,790 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f8f8fa;
+  color: #161616;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+#cmpApp {
+  width: 100%;
+  max-width: 1180px;
+  margin: auto;
+  padding: 32px 20px 60px;
+}
+
+
+/* HEADER */
+
+.cmp-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.cmp-header h1 {
+  margin: 10px 0 8px;
+  font-size: 36px;
+}
+
+.cmp-header p {
+  color: #6f6f76;
+  margin: 0;
+}
+
+.cmp-badge {
+  background: #f2eeff;
+  padding: 7px 13px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* STEPS */
+
+.cmp-steps {
+  max-width: 680px;
+  margin: 30px auto 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cmp-step-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: #999;
+  font-size: 12px;
+}
+
+.cmp-step-indicator span {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #d6d6dc;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.cmp-step-indicator.active {
+  color: #111;
+  font-weight: 700;
+}
+
+.cmp-step-indicator.active span {
+  background: #111;
+  color: white;
+  border-color: #111;
+}
+
+.cmp-step-line {
+  width: 90px;
+  height: 1px;
+  background: #ddd;
+  margin: 0 10px 20px;
+}
+
+
+/* SCREENS */
+
+.cmp-screen {
+  display: none;
+}
+
+.cmp-screen.active {
+  display: block;
+}
+
+.cmp-section-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.cmp-section-title h2 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.cmp-section-title p {
+  margin: 0;
+  color: #777;
+}
+
+
+/* EVENT CARDS */
+
+.cmp-event-grid {
+  max-width: 850px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.cmp-event-card {
+  min-height: 105px;
+  background: white;
+  border: 1px solid #e2e2e6;
+  border-radius: 15px;
+  padding: 18px;
+  text-align: left;
+  transition: .2s;
+}
+
+.cmp-event-card:hover {
+  border-color: #777;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,.06);
+}
+
+.cmp-event-card strong {
+  display: block;
+  font-size: 16px;
+  margin: 5px 0 4px;
+}
+
+.cmp-event-card small {
+  color: #777;
+}
+
+.cmp-event-icon {
+  font-size: 26px;
+}
+
+
+/* BACK LINK */
+
+.cmp-back-link {
+  border: 0;
+  background: transparent;
+  color: #555;
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+
+/* TEMPLATE TOOLBAR */
+
+.cmp-template-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.cmp-theme-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cmp-theme-filter {
+  border: 1px solid #ddd;
+  background: white;
+  padding: 9px 15px;
+  border-radius: 25px;
+}
+
+.cmp-theme-filter.active {
+  background: #111;
+  color: white;
+  border-color: #111;
+}
+
+.cmp-orientation-choice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cmp-orientation-choice span {
+  margin-right: 5px;
+  font-size: 13px;
+  color: #666;
+}
+
+.cmp-orientation {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.cmp-orientation.active {
+  border-color: #111;
+  background: #f0f0f0;
+}
+
+
+/* TEMPLATE GRID */
+
+.cmp-template-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.cmp-template-card {
+  background: white;
+  border: 1px solid #e4e4e7;
+  border-radius: 14px;
+  overflow: hidden;
+  padding: 10px;
+  transition: .2s;
+}
+
+.cmp-template-card:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  transform: translateY(-2px);
+}
+
+.cmp-template-preview {
+  height: 280px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 25px;
+  font-family: Georgia, serif;
+}
+
+.cmp-template-preview strong {
+  font-size: 28px;
+  display: block;
+}
+
+.cmp-template-preview span {
+  display: block;
+  margin-top: 12px;
+  font-size: 22px;
+}
+
+.cmp-template-info {
+  padding: 12px 4px 4px;
+}
+
+.cmp-template-info strong {
+  display: block;
+}
+
+.cmp-template-info small {
+  color: #777;
+  display: block;
+  margin: 4px 0 10px;
+}
+
+.cmp-use-template {
+  width: 100%;
+  border: 0;
+  background: #111;
+  color: white;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+
+/* FORM */
+
+.cmp-form-card {
+  max-width: 720px;
+  margin: auto;
+  background: white;
+  padding: 35px;
+  border-radius: 18px;
+  border: 1px solid #e8e8ea;
+}
+
+.cmp-fields label {
+  display: block;
+  margin: 18px 0 7px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.cmp-fields input,
+.cmp-fields textarea {
+  width: 100%;
+  border: 1px solid #d8d8dd;
+  border-radius: 9px;
+  padding: 13px;
+  background: white;
+}
+
+.cmp-fields textarea {
+  min-height: 95px;
+  resize: vertical;
+}
+
+.cmp-two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.cmp-optional {
+  color: #999;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+.cmp-upload-area {
+  border: 2px dashed #d5d5da;
+  border-radius: 12px;
+  padding: 18px;
+  background: #fafafa;
+}
+
+.cmp-upload-area input {
+  border: 0;
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+.cmp-upload-area strong,
+.cmp-upload-area small {
+  display: block;
+}
+
+.cmp-upload-area small {
+  margin-top: 3px;
+  color: #888;
+}
+
+
+/* BUTTONS */
+
+.cmp-main-button {
+  background: #111;
+  color: white;
+  border: 0;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.cmp-form-card > .cmp-main-button {
+  width: 100%;
+  margin-top: 28px;
+  font-size: 16px;
+}
+
+.cmp-outline-button {
+  border: 1px solid #ddd;
+  background: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+
+/* EDITOR */
+
+.cmp-editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.cmp-editor-header h2 {
+  margin: 0;
+}
+
+.cmp-editor-header p {
+  color: #777;
+  margin: 5px 0 0;
+}
+
+.cmp-editor-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 25px;
+}
+
+.cmp-sidebar {
+  background: white;
+  border: 1px solid #e4e4e8;
+  border-radius: 15px;
+  padding: 20px;
+  height: max-content;
+}
+
+.cmp-editor-section {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.cmp-editor-section:last-child {
+  border-bottom: 0;
+}
+
+.cmp-editor-section h3 {
+  margin: 0 0 12px;
+  font-size: 15px;
+}
+
+.cmp-editor-section label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 12px 0 5px;
+}
+
+.cmp-editor-section select,
+.cmp-editor-section input {
+  width: 100%;
+  padding: 9px;
+}
+
+.cmp-editor-button {
+  width: 100%;
+  margin-bottom: 7px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.cmp-editor-button.danger {
+  color: #a51d1d;
+}
+
+.cmp-align-controls {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 4px;
+}
+
+.cmp-align-controls button {
+  font-size: 11px;
+  padding: 8px 3px;
+  background: white;
+  border: 1px solid #ddd;
+}
+
+.cmp-align-controls button.active {
+  background: #111;
+  color: white;
+}
+
+
+/* CANVAS */
+
+.cmp-canvas-area {
+  background: #ededf0;
+  border-radius: 18px;
+  padding: 35px 20px;
+  text-align: center;
+}
+
+.cmp-invitation {
+  margin: auto;
+  padding: 55px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: Georgia, serif;
+  box-shadow: 0 15px 40px rgba(0,0,0,.18);
+}
+
+.cmp-invitation.portrait {
+  width: 560px;
+  height: 720px;
+}
+
+.cmp-invitation.square {
+  width: 590px;
+  height: 590px;
+}
+
+.cmp-invitation.landscape {
+  width: 720px;
+  height: 500px;
+}
+
+.cmp-invitation h1 {
+  font-size: 46px;
+  max-width: 90%;
+  margin: 14px 0;
+  line-height: 1.08;
+  z-index: 2;
+}
+
+.cmp-invitation h3 {
+  margin: 10px 0 3px;
+  font-size: 22px;
+  z-index: 2;
+}
+
+.cmp-invitation p {
+  margin: 5px 0;
+  max-width: 470px;
+  line-height: 1.45;
+  z-index: 2;
+}
+
+.cmp-small-text {
+  font-size: 11px;
+  letter-spacing: 5px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.cmp-event-message {
+  font-size: 17px;
+}
+
+.cmp-date {
+  font-weight: bold;
+}
+
+.cmp-extra-message {
+  margin-top: 12px !important;
+  font-style: italic;
+}
+
+.cmp-rsvp {
+  margin-top: 12px !important;
+  font-size: 13px;
+}
+
+.cmp-top-graphic {
+  font-size: 28px;
+  margin-bottom: 11px;
+  z-index: 2;
+}
+
+.cmp-bottom-graphic {
+  position: absolute;
+  bottom: 25px;
+  z-index: 2;
+}
+
+.cmp-divider {
+  width: 130px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px auto;
+  z-index: 2;
+}
+
+.cmp-divider span {
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: .4;
+}
+
+.cmp-divider b {
+  font-size: 10px;
+}
+
+
+/* PHOTO */
+
+.cmp-photo-wrap {
+  width: 125px;
+  height: 125px;
+  overflow: hidden;
+  border: 5px solid rgba(255,255,255,.85);
+  margin-bottom: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.14);
+  z-index: 2;
+}
+
+.cmp-photo-wrap.circle {
+  border-radius: 50%;
+}
+
+.cmp-photo-wrap.square {
+  border-radius: 17px;
+}
+
+.cmp-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* DECORATION */
+
+.cmp-decoration {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cmp-decoration-one {
+  width: 180px;
+  height: 180px;
+  top: -80px;
+  left: -70px;
+}
+
+.cmp-decoration-two {
+  width: 220px;
+  height: 220px;
+  right: -100px;
+  bottom: -100px;
+}
+
+
+/* DIRECT EDITING */
+
+[contenteditable="true"] {
+  outline: none;
+}
+
+[contenteditable="true"]:hover {
+  outline: 1px dashed rgba(0,0,0,.35);
+}
+
+
+/* DOWNLOAD */
+
+.cmp-final-actions {
+  margin-top: 25px;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+
+  .cmp-template-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .cmp-editor-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cmp-sidebar {
+    order: 2;
+  }
+
+  .cmp-invitation.landscape {
+    width: 100%;
+    max-width: 720px;
+  }
+
+}
+
+@media(max-width:650px) {
+
+  #cmpApp {
+    padding: 22px 10px 40px;
+  }
+
+  .cmp-header h1 {
+    font-size: 29px;
+  }
+
+  .cmp-event-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .cmp-event-card {
+    padding: 13px;
+  }
+
+  .cmp-event-card small {
+    display: none;
+  }
+
+  .cmp-step-line {
+    width: 30px;
+  }
+
+  .cmp-step-indicator {
+    font-size: 10px;
+  }
+
+  .cmp-template-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+  }
+
+  .cmp-template-preview {
+    height: 210px;
+    padding: 12px;
+  }
+
+  .cmp-template-preview strong {
+    font-size: 21px;
+  }
+
+  .cmp-form-card {
+    padding: 22px;
+  }
+
+  .cmp-two-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .cmp-editor-header {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .cmp-canvas-area {
+    padding: 20px 5px;
+    overflow-x: auto;
+  }
+
+  .cmp-invitation.portrait {
+    width: 100%;
+    max-width: 560px;
+    height: 680px;
+  }
+
+  .cmp-invitation.square {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .cmp-invitation.landscape {
+    width: 680px;
+    height: 470px;
+  }
+
+  .cmp-invitation {
+    padding: 38px 24px 60px;
+  }
+
+  .cmp-invitation h1 {
+    font-size: 36px;
+  }
+
+}
