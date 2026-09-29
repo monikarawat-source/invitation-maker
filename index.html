@@ -1,40 +1,3677 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div id="cmp-maker">
 
-  <title>CreateMyPostly Invitation Maker</title>
+  <!-- =========================
+       FORM SCREEN
+  ========================== -->
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      padding: 40px;
-      text-align: center;
-    }
+  <div id="cmp-form-screen" class="cmp-panel">
 
-    .box {
-      max-width: 700px;
-      margin: auto;
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.08);
-    }
+    <div class="cmp-form-heading">
 
-    h1 {
-      margin-top: 0;
-    }
-  </style>
-</head>
+      <span class="cmp-ai-badge">
+        ✨ AI Invitation Maker
+      </span>
 
-<body>
+      <h2>Create Your Invitation</h2>
 
-  <div class="box">
-    <h1>🎉 CreateMyPostly Invitation Maker</h1>
-    <p>GitHub setup is working successfully.</p>
+      <p>
+        Add your details, upload an optional photo and create your invitation.
+      </p>
+
+    </div>
+
+
+    <label>What are you celebrating?</label>
+
+
+    <div class="cmp-event-grid">
+
+
+      <button
+        type="button"
+        class="cmp-event-card cmp-selected"
+        data-event="Birthday"
+      >
+        <span>🎂</span>
+        Birthday
+      </button>
+
+
+      <button
+        type="button"
+        class="cmp-event-card"
+        data-event="Wedding"
+      >
+        <span>💍</span>
+        Wedding
+      </button>
+
+
+      <button
+        type="button"
+        class="cmp-event-card"
+        data-event="Baby Shower"
+      >
+        <span>👶</span>
+        Baby Shower
+      </button>
+
+
+      <button
+        type="button"
+        class="cmp-event-card"
+        data-event="Graduation"
+      >
+        <span>🎓</span>
+        Graduation
+      </button>
+
+
+      <button
+        type="button"
+        class="cmp-event-card"
+        data-event="Housewarming"
+      >
+        <span>🏠</span>
+        Housewarming
+      </button>
+
+
+      <button
+        type="button"
+        class="cmp-event-card"
+        data-event="Dinner Party"
+      >
+        <span>🍽️</span>
+        Dinner Party
+      </button>
+
+
+      <button
+        type="button"
+        class="cmp-event-card"
+        data-event="Retirement"
+      >
+        <span>🥂</span>
+        Retirement
+      </button>
+
+
+      <button
+        type="button"
+        class="cmp-event-card"
+        data-event="Promotion"
+      >
+        <span>🏆</span>
+        Promotion
+      </button>
+
+
+      <button
+        type="button"
+        class="cmp-event-card"
+        data-event="Grand Opening"
+      >
+        <span>🎀</span>
+        Grand Opening
+      </button>
+
+
+      <button
+        type="button"
+        class="cmp-event-card"
+        data-event="Professional Event"
+      >
+        <span>💼</span>
+        Professional
+      </button>
+
+
+    </div>
+
+
+
+    <!-- FORM FIELDS -->
+
+    <div class="cmp-fields">
+
+
+      <label id="cmpNameLabel">
+        Birthday Person's Name
+      </label>
+
+
+      <input
+        id="cmpName"
+        type="text"
+        placeholder="Example: Riya"
+      >
+
+
+      <div id="cmpExtraFields"></div>
+
+
+
+      <div class="cmp-two-column">
+
+
+        <div>
+
+          <label>Date</label>
+
+          <input
+            id="cmpDate"
+            type="date"
+          >
+
+        </div>
+
+
+        <div>
+
+          <label>Time</label>
+
+          <input
+            id="cmpTime"
+            type="time"
+          >
+
+        </div>
+
+
+      </div>
+
+
+
+      <label>Venue</label>
+
+      <input
+        id="cmpVenue"
+        type="text"
+        placeholder="Enter venue"
+      >
+
+
+
+      <label>Address</label>
+
+      <input
+        id="cmpAddress"
+        type="text"
+        placeholder="Enter address"
+      >
+
+
+
+      <label>RSVP</label>
+
+      <input
+        id="cmpRsvp"
+        type="text"
+        placeholder="Phone number or email"
+      >
+
+
+
+      <!-- PHOTO UPLOAD -->
+
+      <label>Add Photo (Optional)</label>
+
+
+      <div class="cmp-upload-box">
+
+        <input
+          id="cmpPhotoUpload"
+          type="file"
+          accept="image/*"
+        >
+
+        <p>
+          Upload JPG, PNG or another image.
+        </p>
+
+      </div>
+
+
+
+      <label>Optional Message</label>
+
+      <textarea
+        id="cmpCustomMessage"
+        placeholder="Example: Dress code: Pastel colors"
+      ></textarea>
+
+
+    </div>
+
+
+
+    <button
+      type="button"
+      id="cmpCreateBtn"
+      class="cmp-primary cmp-create-button"
+    >
+      ✨ Create My Invitation
+    </button>
+
+
   </div>
 
-</body>
-</html>
+
+
+  <!-- =========================
+       EDITOR SCREEN
+  ========================== -->
+
+  <div
+    id="cmp-editor-screen"
+    style="display:none;"
+  >
+
+
+    <div class="cmp-editor-top">
+
+
+      <button
+        type="button"
+        id="cmpEditDetailsBtn"
+        class="cmp-back-button"
+      >
+        ← Edit Details
+      </button>
+
+
+      <div>
+
+        <h2>Your Invitation</h2>
+
+        <p>
+          Click any invitation text to edit it.
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="cmp-editor-layout">
+
+
+      <!-- SIDEBAR -->
+
+      <div class="cmp-sidebar">
+
+
+        <h3>Customize</h3>
+
+
+
+        <label>Font Style</label>
+
+
+        <select id="cmpFontSelect">
+
+          <option value="Georgia">
+            Elegant
+          </option>
+
+          <option value="Arial">
+            Modern
+          </option>
+
+          <option value="Trebuchet MS">
+            Clean
+          </option>
+
+          <option value="Courier New">
+            Vintage
+          </option>
+
+          <option value="Verdana">
+            Simple
+          </option>
+
+          <option value="Times New Roman">
+            Classic
+          </option>
+
+        </select>
+
+
+
+        <label>Text Color</label>
+
+
+        <div class="cmp-color-control">
+
+          <input
+            type="color"
+            id="cmpTextColor"
+            value="#44352c"
+          >
+
+          <span>
+            Choose Color
+          </span>
+
+        </div>
+
+
+
+        <label>Text Alignment</label>
+
+
+        <div class="cmp-align">
+
+
+          <button
+            type="button"
+            data-align="left"
+          >
+            ⇤
+          </button>
+
+
+          <button
+            type="button"
+            data-align="center"
+            class="active"
+          >
+            ≡
+          </button>
+
+
+          <button
+            type="button"
+            data-align="right"
+          >
+            ⇥
+          </button>
+
+
+        </div>
+
+
+
+        <div class="cmp-sidebar-divider"></div>
+
+
+
+        <h4>Photo</h4>
+
+
+        <button
+          type="button"
+          id="cmpPhotoCircleBtn"
+          class="cmp-light-button cmp-full-button"
+        >
+          ○ Circle Photo
+        </button>
+
+
+        <button
+          type="button"
+          id="cmpPhotoSquareBtn"
+          class="cmp-light-button cmp-full-button"
+        >
+          ▢ Rounded Photo
+        </button>
+
+
+        <button
+          type="button"
+          id="cmpRemovePhotoBtn"
+          class="cmp-light-button cmp-full-button"
+        >
+          ✕ Remove Photo
+        </button>
+
+
+
+        <div class="cmp-sidebar-divider"></div>
+
+
+
+        <h4>Design</h4>
+
+
+        <button
+          type="button"
+          id="cmpRandomStyleBtn"
+          class="cmp-secondary cmp-full-button"
+        >
+          ✨ Try Another Look
+        </button>
+
+
+        <button
+          type="button"
+          id="cmpResetThemeBtn"
+          class="cmp-light-button cmp-full-button"
+        >
+          ↻ Reset Design
+        </button>
+
+
+      </div>
+
+
+
+      <!-- WORKSPACE -->
+
+      <div class="cmp-workspace">
+
+
+        <div
+          id="cmpInvitation"
+          class="cmp-invitation"
+        >
+
+
+          <!-- PHOTO -->
+
+          <div
+            id="cmpPhotoWrap"
+            class="cmp-photo-wrap circle"
+            style="display:none;"
+          >
+
+            <img
+              id="cmpUploadedPhoto"
+              alt="Invitation Photo"
+            >
+
+          </div>
+
+
+
+          <!-- DECORATIVE GRAPHIC -->
+
+          <div
+            id="cmpEventGraphic"
+            class="cmp-event-graphic"
+          >
+            🎈 🎉 🎂
+          </div>
+
+
+
+          <div
+            class="cmp-invite-small"
+            contenteditable="true"
+          >
+            YOU'RE INVITED
+          </div>
+
+
+
+          <h1
+            id="cmpTitle"
+            contenteditable="true"
+          >
+            Riya's Birthday
+          </h1>
+
+
+
+          <p
+            id="cmpMessage"
+            class="cmp-message"
+            contenteditable="true"
+          >
+            Come celebrate with us!
+          </p>
+
+
+
+          <div class="cmp-divider-decoration">
+
+            <span></span>
+
+            <b>✦</b>
+
+            <span></span>
+
+          </div>
+
+
+
+          <p
+            id="cmpDateOutput"
+            class="cmp-important-text"
+            contenteditable="true"
+          ></p>
+
+
+
+          <p
+            id="cmpTimeOutput"
+            contenteditable="true"
+          ></p>
+
+
+
+          <h3
+            id="cmpVenueOutput"
+            contenteditable="true"
+          ></h3>
+
+
+
+          <p
+            id="cmpAddressOutput"
+            contenteditable="true"
+          ></p>
+
+
+
+          <p
+            id="cmpCustomOutput"
+            class="cmp-custom-message"
+            contenteditable="true"
+          ></p>
+
+
+
+          <p
+            id="cmpRsvpOutput"
+            class="cmp-rsvp"
+            contenteditable="true"
+          ></p>
+
+
+
+          <div
+            id="cmpBottomGraphic"
+            class="cmp-bottom-graphic"
+          >
+            🎊 ✨ 🎈
+          </div>
+
+
+        </div>
+
+
+
+        <div class="cmp-download-area">
+
+
+          <button
+            type="button"
+            id="cmpDownloadBtn"
+            class="cmp-primary"
+          >
+            ↓ Download Invitation PNG
+          </button>
+
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+
+<!-- HTML2CANVAS -->
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
+</script>
+
+
+
+<style>
+
+/* =============================
+GLOBAL
+============================= */
+
+#cmp-maker {
+
+  max-width:1200px;
+
+  margin:40px auto;
+
+  font-family:
+  Arial,
+  Helvetica,
+  sans-serif;
+
+}
+
+
+#cmp-maker * {
+
+  box-sizing:border-box;
+
+}
+
+
+
+/* =============================
+FORM
+============================= */
+
+.cmp-panel {
+
+  max-width:760px;
+
+  margin:auto;
+
+  background:white;
+
+  border:
+  1px solid #eee;
+
+  border-radius:20px;
+
+  padding:38px;
+
+  box-shadow:
+  0 15px 50px rgba(0,0,0,.07);
+
+}
+
+
+.cmp-form-heading {
+
+  text-align:center;
+
+  margin-bottom:30px;
+
+}
+
+
+.cmp-ai-badge {
+
+  display:inline-block;
+
+  padding:7px 13px;
+
+  background:#f3efff;
+
+  border-radius:30px;
+
+  font-size:13px;
+
+  font-weight:600;
+
+}
+
+
+.cmp-form-heading h2 {
+
+  font-size:34px;
+
+  margin:
+  12px 0 8px;
+
+}
+
+
+.cmp-form-heading p {
+
+  color:#666;
+
+  margin:0;
+
+}
+
+
+.cmp-panel label {
+
+  display:block;
+
+  font-weight:600;
+
+  margin-top:19px;
+
+  margin-bottom:8px;
+
+}
+
+
+
+/* =============================
+EVENT CARDS
+============================= */
+
+.cmp-event-grid {
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(2,1fr);
+
+  gap:10px;
+
+  margin-bottom:25px;
+
+}
+
+
+.cmp-event-card {
+
+  background:#fff;
+
+  border:
+  1px solid #ddd;
+
+  padding:14px;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+  font-size:14px;
+
+  font-weight:600;
+
+  text-align:left;
+
+}
+
+
+.cmp-event-card span {
+
+  font-size:20px;
+
+  margin-right:7px;
+
+}
+
+
+.cmp-event-card.cmp-selected {
+
+  border:
+  2px solid #111;
+
+  background:#f7f7f7;
+
+}
+
+
+
+/* =============================
+FIELDS
+============================= */
+
+.cmp-fields input,
+.cmp-fields textarea {
+
+  width:100%;
+
+  padding:
+  13px 14px;
+
+  border:
+  1px solid #ddd;
+
+  border-radius:9px;
+
+  font-size:16px;
+
+}
+
+
+.cmp-fields textarea {
+
+  min-height:90px;
+
+}
+
+
+.cmp-two-column {
+
+  display:grid;
+
+  grid-template-columns:
+  1fr 1fr;
+
+  gap:15px;
+
+}
+
+
+
+/* =============================
+UPLOAD
+============================= */
+
+.cmp-upload-box {
+
+  border:
+  2px dashed #ddd;
+
+  padding:18px;
+
+  border-radius:12px;
+
+  background:#fafafa;
+
+}
+
+
+.cmp-upload-box input {
+
+  border:0;
+
+  padding:0;
+
+}
+
+
+.cmp-upload-box p {
+
+  font-size:12px;
+
+  color:#777;
+
+  margin:
+  8px 0 0;
+
+}
+
+
+
+/* =============================
+BUTTONS
+============================= */
+
+.cmp-primary {
+
+  border:0;
+
+  background:#111;
+
+  color:#fff;
+
+  border-radius:10px;
+
+  padding:
+  14px 22px;
+
+  cursor:pointer;
+
+  font-size:15px;
+
+  font-weight:600;
+
+}
+
+
+.cmp-create-button {
+
+  width:100%;
+
+  margin-top:30px;
+
+  padding:16px;
+
+  font-size:17px;
+
+}
+
+
+.cmp-secondary {
+
+  border:
+  1px solid #ccc;
+
+  background:#fff;
+
+  padding:11px;
+
+  border-radius:9px;
+
+  cursor:pointer;
+
+}
+
+
+.cmp-light-button {
+
+  border:0;
+
+  background:#f1f1f1;
+
+  color:#333;
+
+  padding:11px;
+
+  border-radius:9px;
+
+  cursor:pointer;
+
+}
+
+
+.cmp-full-button {
+
+  width:100%;
+
+  margin-top:9px;
+
+}
+
+
+
+/* =============================
+EDITOR
+============================= */
+
+.cmp-editor-top {
+
+  display:flex;
+
+  gap:20px;
+
+  align-items:center;
+
+  margin-bottom:25px;
+
+}
+
+
+.cmp-editor-top h2 {
+
+  margin:0;
+
+}
+
+
+.cmp-editor-top p {
+
+  margin:
+  5px 0 0;
+
+  color:#666;
+
+}
+
+
+.cmp-back-button {
+
+  border:
+  1px solid #ddd;
+
+  background:#fff;
+
+  border-radius:8px;
+
+  padding:10px 15px;
+
+  cursor:pointer;
+
+}
+
+
+.cmp-editor-layout {
+
+  display:grid;
+
+  grid-template-columns:
+  260px 1fr;
+
+  gap:30px;
+
+}
+
+
+
+/* =============================
+SIDEBAR
+============================= */
+
+.cmp-sidebar {
+
+  background:#fff;
+
+  border:
+  1px solid #eee;
+
+  border-radius:16px;
+
+  padding:22px;
+
+  height:max-content;
+
+}
+
+
+.cmp-sidebar h3 {
+
+  margin-top:0;
+
+}
+
+
+.cmp-sidebar label {
+
+  display:block;
+
+  font-size:13px;
+
+  font-weight:600;
+
+  margin:
+  18px 0 7px;
+
+}
+
+
+.cmp-sidebar select {
+
+  width:100%;
+
+  padding:10px;
+
+  border:
+  1px solid #ddd;
+
+  border-radius:7px;
+
+}
+
+
+.cmp-color-control {
+
+  display:flex;
+
+  gap:10px;
+
+  align-items:center;
+
+}
+
+
+.cmp-color-control input {
+
+  width:45px;
+
+  height:36px;
+
+}
+
+
+.cmp-align {
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(3,1fr);
+
+  gap:5px;
+
+}
+
+
+.cmp-align button {
+
+  padding:8px;
+
+  border:
+  1px solid #ddd;
+
+  background:#fff;
+
+  border-radius:6px;
+
+  cursor:pointer;
+
+}
+
+
+.cmp-align button.active {
+
+  background:#111;
+
+  color:white;
+
+}
+
+
+.cmp-sidebar-divider {
+
+  height:1px;
+
+  background:#eee;
+
+  margin:
+  22px 0;
+
+}
+
+
+
+/* =============================
+WORKSPACE
+============================= */
+
+.cmp-workspace {
+
+  background:#f5f5f6;
+
+  border-radius:20px;
+
+  padding:
+  35px 20px;
+
+  text-align:center;
+
+}
+
+
+
+/* =============================
+INVITATION
+============================= */
+
+.cmp-invitation {
+
+  width:600px;
+
+  height:780px;
+
+  margin:auto;
+
+  padding:
+  55px 55px 75px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+  align-items:center;
+
+  text-align:center;
+
+  position:relative;
+
+  overflow:hidden;
+
+  font-family:
+  Georgia,
+  serif;
+
+  box-shadow:
+  0 18px 50px rgba(0,0,0,.18);
+
+  background:
+  linear-gradient(
+  135deg,
+  #fff5d7,
+  #ffddeb,
+  #dff3ff
+  );
+
+  color:#523750;
+
+  border:
+  4px solid #ffbdd5;
+
+}
+
+
+.cmp-invitation h1 {
+
+  font-size:48px;
+
+  line-height:1.08;
+
+  margin:
+  13px 0;
+
+}
+
+
+.cmp-invitation h3 {
+
+  font-size:23px;
+
+  margin:
+  10px 0 5px;
+
+}
+
+
+.cmp-invitation p {
+
+  font-size:16px;
+
+  line-height:1.5;
+
+  margin:
+  4px 0;
+
+  max-width:470px;
+
+}
+
+
+.cmp-event-graphic {
+
+  font-size:30px;
+
+  margin-bottom:10px;
+
+}
+
+
+.cmp-invite-small {
+
+  font-size:12px;
+
+  letter-spacing:5px;
+
+  font-weight:bold;
+
+}
+
+
+.cmp-divider-decoration {
+
+  width:130px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  margin:14px auto;
+
+}
+
+
+.cmp-divider-decoration span {
+
+  height:1px;
+
+  flex:1;
+
+  background:currentColor;
+
+  opacity:.4;
+
+}
+
+
+.cmp-bottom-graphic {
+
+  position:absolute;
+
+  bottom:25px;
+
+  font-size:22px;
+
+}
+
+
+.cmp-custom-message {
+
+  font-style:italic;
+
+  margin-top:
+  10px !important;
+
+}
+
+
+.cmp-rsvp {
+
+  font-size:
+  14px !important;
+
+  margin-top:
+  10px !important;
+
+}
+
+
+
+/* =============================
+PHOTO
+============================= */
+
+.cmp-photo-wrap {
+
+  width:125px;
+
+  height:125px;
+
+  overflow:hidden;
+
+  margin-bottom:12px;
+
+  border:
+  5px solid rgba(255,255,255,.9);
+
+  box-shadow:
+  0 6px 20px rgba(0,0,0,.18);
+
+  flex-shrink:0;
+
+}
+
+
+.cmp-photo-wrap.circle {
+
+  border-radius:50%;
+
+}
+
+
+.cmp-photo-wrap.square {
+
+  border-radius:18px;
+
+}
+
+
+.cmp-photo-wrap img {
+
+  width:100%;
+
+  height:100%;
+
+  display:block;
+
+  object-fit:cover;
+
+}
+
+
+
+/* =============================
+EDITABLE TEXT
+============================= */
+
+[contenteditable="true"] {
+
+  outline:none;
+
+}
+
+
+[contenteditable="true"]:hover {
+
+  outline:
+  1px dashed rgba(0,0,0,.3);
+
+}
+
+
+
+/* =============================
+RESPONSIVE
+============================= */
+
+@media(max-width:900px) {
+
+  .cmp-editor-layout {
+
+    grid-template-columns:1fr;
+
+  }
+
+
+  .cmp-sidebar {
+
+    order:2;
+
+  }
+
+}
+
+
+@media(max-width:650px) {
+
+  .cmp-panel {
+
+    padding:22px;
+
+  }
+
+
+  .cmp-two-column {
+
+    grid-template-columns:1fr;
+
+  }
+
+
+  .cmp-invitation {
+
+    width:100%;
+
+    height:690px;
+
+    padding:
+    40px 25px 65px;
+
+  }
+
+
+  .cmp-invitation h1 {
+
+    font-size:37px;
+
+  }
+
+
+  .cmp-photo-wrap {
+
+    width:100px;
+
+    height:100px;
+
+  }
+
+}
+
+</style>
+
+
+
+<script>
+
+(function(){
+
+
+let cmpSelectedEvent =
+"Birthday";
+
+
+let cmpVariant =
+1;
+
+
+let cmpPhotoData =
+"";
+
+
+
+/* =============================
+INIT
+============================= */
+
+function cmpInit(){
+
+
+const createButton =
+document.getElementById(
+"cmpCreateBtn"
+);
+
+
+if(!createButton){
+
+return;
+
+}
+
+
+
+/* EVENT */
+
+document
+.querySelectorAll(
+".cmp-event-card"
+)
+.forEach(function(button){
+
+
+button.addEventListener(
+"click",
+function(){
+
+
+document
+.querySelectorAll(
+".cmp-event-card"
+)
+.forEach(function(item){
+
+item.classList.remove(
+"cmp-selected"
+);
+
+});
+
+
+this.classList.add(
+"cmp-selected"
+);
+
+
+cmpSelectedEvent =
+this.dataset.event;
+
+
+cmpUpdateFields();
+
+
+});
+
+
+});
+
+
+
+/* PHOTO UPLOAD */
+
+const photoUpload =
+document.getElementById(
+"cmpPhotoUpload"
+);
+
+
+photoUpload.addEventListener(
+"change",
+function(){
+
+
+const file =
+this.files[0];
+
+
+if(!file){
+
+return;
+
+}
+
+
+if(
+!file.type.startsWith(
+"image/"
+)
+){
+
+alert(
+"Please upload a valid image."
+);
+
+this.value="";
+
+return;
+
+}
+
+
+const reader =
+new FileReader();
+
+
+reader.onload =
+function(e){
+
+
+cmpPhotoData =
+e.target.result;
+
+
+const image =
+document.getElementById(
+"cmpUploadedPhoto"
+);
+
+
+const wrapper =
+document.getElementById(
+"cmpPhotoWrap"
+);
+
+
+image.src =
+cmpPhotoData;
+
+
+wrapper.style.display =
+"block";
+
+
+};
+
+
+reader.readAsDataURL(
+file
+);
+
+
+});
+
+
+/* CREATE */
+
+createButton
+.addEventListener(
+"click",
+function(e){
+
+
+e.preventDefault();
+
+
+cmpCreate();
+
+
+});
+
+
+/* BACK */
+
+document
+.getElementById(
+"cmpEditDetailsBtn"
+)
+.addEventListener(
+"click",
+function(e){
+
+
+e.preventDefault();
+
+
+cmpBack();
+
+
+});
+
+
+/* ANOTHER LOOK */
+
+document
+.getElementById(
+"cmpRandomStyleBtn"
+)
+.addEventListener(
+"click",
+function(e){
+
+
+e.preventDefault();
+
+
+cmpVariant++;
+
+
+if(
+cmpVariant > 3
+){
+
+cmpVariant = 1;
+
+}
+
+
+cmpApplyTheme();
+
+
+});
+
+
+/* RESET */
+
+document
+.getElementById(
+"cmpResetThemeBtn"
+)
+.addEventListener(
+"click",
+function(e){
+
+
+e.preventDefault();
+
+
+cmpVariant = 1;
+
+
+cmpApplyTheme();
+
+
+});
+
+
+/* REMOVE PHOTO */
+
+document
+.getElementById(
+"cmpRemovePhotoBtn"
+)
+.addEventListener(
+"click",
+function(e){
+
+
+e.preventDefault();
+
+
+cmpPhotoData =
+"";
+
+
+document
+.getElementById(
+"cmpPhotoWrap"
+)
+.style.display =
+"none";
+
+
+document
+.getElementById(
+"cmpUploadedPhoto"
+)
+.src =
+"";
+
+
+document
+.getElementById(
+"cmpPhotoUpload"
+)
+.value =
+"";
+
+
+});
+
+
+/* PHOTO CIRCLE */
+
+document
+.getElementById(
+"cmpPhotoCircleBtn"
+)
+.addEventListener(
+"click",
+function(e){
+
+
+e.preventDefault();
+
+
+const wrapper =
+document.getElementById(
+"cmpPhotoWrap"
+);
+
+
+wrapper.classList.remove(
+"square"
+);
+
+
+wrapper.classList.add(
+"circle"
+);
+
+
+});
+
+
+/* PHOTO SQUARE */
+
+document
+.getElementById(
+"cmpPhotoSquareBtn"
+)
+.addEventListener(
+"click",
+function(e){
+
+
+e.preventDefault();
+
+
+const wrapper =
+document.getElementById(
+"cmpPhotoWrap"
+);
+
+
+wrapper.classList.remove(
+"circle"
+);
+
+
+wrapper.classList.add(
+"square"
+);
+
+
+});
+
+
+/* FONT */
+
+document
+.getElementById(
+"cmpFontSelect"
+)
+.addEventListener(
+"change",
+function(){
+
+
+document
+.getElementById(
+"cmpInvitation"
+)
+.style.fontFamily =
+this.value;
+
+
+});
+
+
+/* COLOR */
+
+document
+.getElementById(
+"cmpTextColor"
+)
+.addEventListener(
+"input",
+function(){
+
+
+document
+.getElementById(
+"cmpInvitation"
+)
+.style.color =
+this.value;
+
+
+});
+
+
+/* ALIGNMENT */
+
+document
+.querySelectorAll(
+".cmp-align button"
+)
+.forEach(function(button){
+
+
+button.addEventListener(
+"click",
+function(){
+
+
+document
+.querySelectorAll(
+".cmp-align button"
+)
+.forEach(function(item){
+
+item.classList.remove(
+"active"
+);
+
+});
+
+
+this.classList.add(
+"active"
+);
+
+
+cmpAlign(
+this.dataset.align
+);
+
+
+});
+
+
+});
+
+
+/* DOWNLOAD */
+
+document
+.getElementById(
+"cmpDownloadBtn"
+)
+.addEventListener(
+"click",
+function(e){
+
+
+e.preventDefault();
+
+
+cmpDownload();
+
+
+});
+
+
+cmpUpdateFields();
+
+
+}
+
+
+
+/* =============================
+DYNAMIC FIELDS
+============================= */
+
+function cmpUpdateFields(){
+
+
+const label =
+document.getElementById(
+"cmpNameLabel"
+);
+
+
+const input =
+document.getElementById(
+"cmpName"
+);
+
+
+const extra =
+document.getElementById(
+"cmpExtraFields"
+);
+
+
+extra.innerHTML =
+"";
+
+
+if(
+cmpSelectedEvent ===
+"Birthday"
+){
+
+label.textContent =
+"Birthday Person's Name";
+
+
+input.placeholder =
+"Example: Riya";
+
+
+extra.innerHTML = `
+
+<label>Age</label>
+
+<input
+id="cmpAge"
+type="number"
+placeholder="Example: 25"
+>
+
+`;
+
+}
+
+
+else if(
+cmpSelectedEvent ===
+"Wedding"
+){
+
+label.textContent =
+"First Name";
+
+
+input.placeholder =
+"Example: Riya";
+
+
+extra.innerHTML = `
+
+<label>Partner's Name</label>
+
+<input
+id="cmpPartner"
+type="text"
+placeholder="Example: Arjun"
+>
+
+`;
+
+}
+
+
+else if(
+cmpSelectedEvent ===
+"Baby Shower"
+){
+
+label.textContent =
+"Parent / Family Name";
+
+
+input.placeholder =
+"Example: Riya & Arjun";
+
+}
+
+
+else if(
+cmpSelectedEvent ===
+"Graduation"
+){
+
+label.textContent =
+"Graduate's Name";
+
+
+input.placeholder =
+"Example: Riya";
+
+}
+
+
+else if(
+cmpSelectedEvent ===
+"Housewarming"
+){
+
+label.textContent =
+"Host / Family Name";
+
+
+input.placeholder =
+"Example: The Sharma Family";
+
+}
+
+
+else if(
+cmpSelectedEvent ===
+"Dinner Party"
+){
+
+label.textContent =
+"Host Name";
+
+
+input.placeholder =
+"Example: Riya";
+
+}
+
+
+else if(
+cmpSelectedEvent ===
+"Retirement"
+){
+
+label.textContent =
+"Retiree's Name";
+
+
+input.placeholder =
+"Example: Rajesh Sharma";
+
+}
+
+
+else if(
+cmpSelectedEvent ===
+"Promotion"
+){
+
+label.textContent =
+"Person's Name";
+
+
+input.placeholder =
+"Example: Riya";
+
+}
+
+
+else if(
+cmpSelectedEvent ===
+"Grand Opening"
+){
+
+label.textContent =
+"Business Name";
+
+
+input.placeholder =
+"Example: Bloom Cafe";
+
+}
+
+
+else{
+
+label.textContent =
+"Event / Organization Name";
+
+
+input.placeholder =
+"Example: CreateMyPostly";
+
+}
+
+
+}
+
+
+
+/* =============================
+CREATE
+============================= */
+
+function cmpCreate(){
+
+
+const name =
+document
+.getElementById(
+"cmpName"
+)
+.value
+.trim();
+
+
+const date =
+document
+.getElementById(
+"cmpDate"
+)
+.value;
+
+
+const time =
+document
+.getElementById(
+"cmpTime"
+)
+.value;
+
+
+const venue =
+document
+.getElementById(
+"cmpVenue"
+)
+.value
+.trim();
+
+
+const address =
+document
+.getElementById(
+"cmpAddress"
+)
+.value
+.trim();
+
+
+const rsvp =
+document
+.getElementById(
+"cmpRsvp"
+)
+.value
+.trim();
+
+
+const custom =
+document
+.getElementById(
+"cmpCustomMessage"
+)
+.value
+.trim();
+
+
+
+if(!name){
+
+alert(
+"Please enter a name."
+);
+
+return;
+
+}
+
+
+if(!date){
+
+alert(
+"Please select a date."
+);
+
+return;
+
+}
+
+
+if(!time){
+
+alert(
+"Please select a time."
+);
+
+return;
+
+}
+
+
+if(!venue){
+
+alert(
+"Please enter the venue."
+);
+
+return;
+
+}
+
+
+
+let title =
+name;
+
+
+let message =
+"You're invited to celebrate with us!";
+
+
+
+if(
+cmpSelectedEvent ===
+"Birthday"
+){
+
+const ageField =
+document.getElementById(
+"cmpAge"
+);
+
+
+const age =
+ageField
+?
+ageField.value
+:
+"";
+
+
+title =
+age
+?
+name +
+"'s " +
+cmpOrdinal(age) +
+" Birthday"
+:
+name +
+"'s Birthday";
+
+
+message =
+"Come celebrate a wonderful birthday filled with fun, laughter and memories!";
+
+}
+
+
+
+else if(
+cmpSelectedEvent ===
+"Wedding"
+){
+
+const partner =
+document.getElementById(
+"cmpPartner"
+);
+
+
+const partnerName =
+partner
+?
+partner.value.trim()
+:
+"";
+
+
+title =
+partnerName
+?
+name +
+" & " +
+partnerName
+:
+name;
+
+
+message =
+"Together with their families, invite you to celebrate their wedding.";
+
+}
+
+
+
+else if(
+cmpSelectedEvent ===
+"Baby Shower"
+){
+
+title =
+"Baby Shower";
+
+
+message =
+"A little bundle of joy is on the way. Join us in celebrating " +
+name +
+"!";
+
+}
+
+
+
+else if(
+cmpSelectedEvent ===
+"Graduation"
+){
+
+title =
+name +
+"'s Graduation";
+
+
+message =
+"Join us in celebrating this wonderful achievement and a bright new beginning.";
+
+}
+
+
+
+else if(
+cmpSelectedEvent ===
+"Housewarming"
+){
+
+title =
+"Housewarming Party";
+
+
+message =
+name +
+" warmly invites you to celebrate our new home.";
+
+}
+
+
+
+else if(
+cmpSelectedEvent ===
+"Dinner Party"
+){
+
+title =
+"Dinner Party";
+
+
+message =
+"Join " +
+name +
+" for an evening of delicious food and good company.";
+
+}
+
+
+
+else if(
+cmpSelectedEvent ===
+"Retirement"
+){
+
+title =
+name +
+"'s Retirement Celebration";
+
+
+message =
+"Join us as we celebrate an incredible journey and toast to the next chapter.";
+
+}
+
+
+
+else if(
+cmpSelectedEvent ===
+"Promotion"
+){
+
+title =
+"Promotion Celebration";
+
+
+message =
+"Let's celebrate " +
+name +
+" and this exciting achievement!";
+
+}
+
+
+
+else if(
+cmpSelectedEvent ===
+"Grand Opening"
+){
+
+title =
+name +
+" Grand Opening";
+
+
+message =
+"You're invited to celebrate an exciting new beginning with us.";
+
+}
+
+
+
+else{
+
+title =
+name;
+
+
+message =
+"We invite you to join us for this special professional event.";
+
+}
+
+
+
+const formattedDate =
+new Date(
+date +
+"T00:00:00"
+)
+.toLocaleDateString(
+"en-US",
+{
+
+weekday:
+"long",
+
+year:
+"numeric",
+
+month:
+"long",
+
+day:
+"numeric"
+
+}
+);
+
+
+
+document
+.getElementById(
+"cmpTitle"
+)
+.textContent =
+title;
+
+
+document
+.getElementById(
+"cmpMessage"
+)
+.textContent =
+message;
+
+
+document
+.getElementById(
+"cmpDateOutput"
+)
+.textContent =
+formattedDate;
+
+
+document
+.getElementById(
+"cmpTimeOutput"
+)
+.textContent =
+cmpFormatTime(
+time
+);
+
+
+document
+.getElementById(
+"cmpVenueOutput"
+)
+.textContent =
+venue;
+
+
+document
+.getElementById(
+"cmpAddressOutput"
+)
+.textContent =
+address;
+
+
+document
+.getElementById(
+"cmpCustomOutput"
+)
+.textContent =
+custom;
+
+
+document
+.getElementById(
+"cmpRsvpOutput"
+)
+.textContent =
+rsvp
+?
+"RSVP • " +
+rsvp
+:
+"";
+
+
+if(
+cmpPhotoData
+){
+
+document
+.getElementById(
+"cmpUploadedPhoto"
+)
+.src =
+cmpPhotoData;
+
+
+document
+.getElementById(
+"cmpPhotoWrap"
+)
+.style.display =
+"block";
+
+}
+
+
+cmpVariant =
+1;
+
+
+cmpApplyTheme();
+
+
+document
+.getElementById(
+"cmp-form-screen"
+)
+.style.display =
+"none";
+
+
+document
+.getElementById(
+"cmp-editor-screen"
+)
+.style.display =
+"block";
+
+
+}
+
+
+
+/* =============================
+THEMES
+============================= */
+
+function cmpApplyTheme(){
+
+
+const invitation =
+document.getElementById(
+"cmpInvitation"
+);
+
+
+const top =
+document.getElementById(
+"cmpEventGraphic"
+);
+
+
+const bottom =
+document.getElementById(
+"cmpBottomGraphic"
+);
+
+
+
+invitation.style.background =
+"";
+
+
+invitation.style.color =
+"";
+
+
+invitation.style.border =
+"";
+
+
+
+/* BIRTHDAY */
+
+if(
+cmpSelectedEvent ===
+"Birthday"
+){
+
+if(
+cmpVariant === 1
+){
+
+invitation.style.background =
+"linear-gradient(135deg,#fff5d7,#ffddeb,#dff3ff)";
+
+invitation.style.color =
+"#523750";
+
+invitation.style.border =
+"4px solid #ffbdd5";
+
+top.textContent =
+"🎈 🎉 🎂";
+
+bottom.textContent =
+"🎊 ✨ 🎈";
+
+}
+
+
+else if(
+cmpVariant === 2
+){
+
+invitation.style.background =
+"linear-gradient(135deg,#dff8ff,#e4e3ff,#ffe4f4)";
+
+invitation.style.color =
+"#34446b";
+
+invitation.style.border =
+"5px dashed #7abce5";
+
+top.textContent =
+"🎉 🎁 🎈";
+
+bottom.textContent =
+"🎂 🎊 ✨";
+
+}
+
+
+else{
+
+invitation.style.background =
+"linear-gradient(145deg,#fff0b8,#ffb8cb,#bce6ff)";
+
+invitation.style.color =
+"#4a2f3e";
+
+invitation.style.border =
+"8px double #ff8bab";
+
+top.textContent =
+"✨ 🎂 ✨";
+
+bottom.textContent =
+"🎈 HAPPY BIRTHDAY 🎈";
+
+}
+
+}
+
+
+
+/* WEDDING */
+
+else if(
+cmpSelectedEvent ===
+"Wedding"
+){
+
+if(
+cmpVariant === 1
+){
+
+invitation.style.background =
+"linear-gradient(145deg,#fffdf8,#f7eee7)";
+
+invitation.style.color =
+"#5c473d";
+
+invitation.style.border =
+"3px solid #dfcfc1";
+
+top.textContent =
+"🌿 🌸 🌿";
+
+bottom.textContent =
+"🌿 ♡ 🌿";
+
+}
+
+
+else if(
+cmpVariant === 2
+){
+
+invitation.style.background =
+"linear-gradient(145deg,#f4f0e7,#dde8d7)";
+
+invitation.style.color =
+"#46533e";
+
+invitation.style.border =
+"6px double #91a282";
+
+top.textContent =
+"🌿 🤍 🌿";
+
+bottom.textContent =
+"❀ TOGETHER ❀";
+
+}
+
+
+else{
+
+invitation.style.background =
+"linear-gradient(145deg,#1d1a18,#40342b)";
+
+invitation.style.color =
+"#eed7a0";
+
+invitation.style.border =
+"4px solid #b7975a";
+
+top.textContent =
+"✦ 💍 ✦";
+
+bottom.textContent =
+"✦ FOREVER ✦";
+
+}
+
+}
+
+
+
+/* BABY */
+
+else if(
+cmpSelectedEvent ===
+"Baby Shower"
+){
+
+if(
+cmpVariant === 1
+){
+
+invitation.style.background =
+"linear-gradient(180deg,#dff5ff,#fce8f3)";
+
+invitation.style.color =
+"#58617b";
+
+invitation.style.border =
+"4px solid #e8c9df";
+
+top.textContent =
+"☁️ 🎈 ☁️";
+
+bottom.textContent =
+"🧸 ⭐ 🌙";
+
+}
+
+
+else if(
+cmpVariant === 2
+){
+
+invitation.style.background =
+"linear-gradient(180deg,#f7f0d8,#e5f1df)";
+
+invitation.style.color =
+"#53614e";
+
+invitation.style.border =
+"5px dashed #b7c9ad";
+
+top.textContent =
+"🧸 🌿 🧸";
+
+bottom.textContent =
+"⭐ BABY ⭐";
+
+}
+
+
+else{
+
+invitation.style.background =
+"linear-gradient(145deg,#fff5d9,#ffe4f0,#e7e4ff)";
+
+invitation.style.color =
+"#665572";
+
+invitation.style.border =
+"7px double #cab2dc";
+
+top.textContent =
+"🌙 ⭐ ☁️";
+
+bottom.textContent =
+"🎈 LITTLE ONE 🎈";
+
+}
+
+}
+
+
+
+/* GRADUATION */
+
+else if(
+cmpSelectedEvent ===
+"Graduation"
+){
+
+if(
+cmpVariant === 1
+){
+
+invitation.style.background =
+"linear-gradient(145deg,#07111f,#1b2940)";
+
+invitation.style.color =
+"#f5d876";
+
+}
+
+
+else if(
+cmpVariant === 2
+){
+
+invitation.style.background =
+"linear-gradient(145deg,#faf7ec,#e8ddbd)";
+
+invitation.style.color =
+"#252525";
+
+}
+
+
+else{
+
+invitation.style.background =
+"linear-gradient(145deg,#381117,#721e2c)";
+
+invitation.style.color =
+"#f8de97";
+
+}
+
+
+invitation.style.border =
+"6px solid #d1ae48";
+
+
+top.textContent =
+"🎓 ★ 🎓";
+
+
+bottom.textContent =
+"★ CLASS OF 2026 ★";
+
+}
+
+
+
+/* HOUSEWARMING */
+
+else if(
+cmpSelectedEvent ===
+"Housewarming"
+){
+
+if(
+cmpVariant === 1
+){
+
+invitation.style.background =
+"linear-gradient(145deg,#faf6e9,#e7f0df)";
+
+invitation.style.color =
+"#526046";
+
+}
+
+
+else if(
+cmpVariant === 2
+){
+
+invitation.style.background =
+"linear-gradient(145deg,#fff3e7,#ead7c1)";
+
+invitation.style.color =
+"#674f3e";
+
+}
+
+
+else{
+
+invitation.style.background =
+"linear-gradient(145deg,#e6f0ec,#cfded6)";
+
+invitation.style.color =
+"#354f44";
+
+}
+
+
+invitation.style.border =
+"5px solid #9caf8e";
+
+
+top.textContent =
+"🌿 🏡 🌿";
+
+
+bottom.textContent =
+"WELCOME HOME";
+
+}
+
+
+
+/* DINNER */
+
+else if(
+cmpSelectedEvent ===
+"Dinner Party"
+){
+
+if(
+cmpVariant === 1
+){
+
+invitation.style.background =
+"linear-gradient(145deg,#231519,#54313b)";
+
+invitation.style.color =
+"#f1dcba";
+
+}
+
+
+else if(
+cmpVariant === 2
+){
+
+invitation.style.background =
+"linear-gradient(145deg,#122521,#23443b)";
+
+invitation.style.color =
+"#e5d6ad";
+
+}
+
+
+else{
+
+invitation.style.background =
+"linear-gradient(145deg,#f6efe3,#dfc7ae)";
+
+invitation.style.color =
+"#5e4635";
+
+}
+
+
+invitation.style.border =
+"4px solid #b38c69";
+
+
+top.textContent =
+"✦ 🍷 ✦";
+
+
+bottom.textContent =
+"✦ 🍽️ ✦";
+
+}
+
+
+
+/* RETIREMENT */
+
+else if(
+cmpSelectedEvent ===
+"Retirement"
+){
+
+if(
+cmpVariant === 1
+){
+
+invitation.style.background =
+"linear-gradient(145deg,#fffdf4,#f3e4c4)";
+
+invitation.style.color =
+"#66502d";
+
+}
+
+
+else if(
+cmpVariant === 2
+){
+
+invitation.style.background =
+"linear-gradient(145deg,#142031,#263d58)";
+
+invitation.style.color =
+"#f1d489";
+
+}
+
+
+else{
+
+invitation.style.background =
+"linear-gradient(145deg,#f5e5e0,#f8f1e8)";
+
+invitation.style.color =
+"#674a45";
+
+}
+
+
+invitation.style.border =
+"5px double #c7a458";
+
+
+top.textContent =
+"🥂 ✨ 🥂";
+
+
+bottom.textContent =
+"CHEERS TO THE NEXT CHAPTER";
+
+}
+
+
+
+/* PROMOTION */
+
+else if(
+cmpSelectedEvent ===
+"Promotion"
+){
+
+if(
+cmpVariant === 1
+){
+
+invitation.style.background =
+"linear-gradient(145deg,#eef5ff,#f4edff)";
+
+invitation.style.color =
+"#293854";
+
+}
+
+
+else if(
+cmpVariant === 2
+){
+
+invitation.style.background =
+"linear-gradient(145deg,#111b2a,#243957)";
+
+invitation.style.color =
+"#f3d67d";
+
+}
+
+
+else{
+
+invitation.style.background =
+"linear-gradient(145deg,#fff1d8,#ffe1b8)";
+
+invitation.style.color =
+"#62431f";
+
+}
+
+
+invitation.style.border =
+"4px solid #9aaed0";
+
+
+top.textContent =
+"🏆 ✨ 🎉";
+
+
+bottom.textContent =
+"★ CONGRATULATIONS ★";
+
+}
+
+
+
+/* GRAND OPENING */
+
+else if(
+cmpSelectedEvent ===
+"Grand Opening"
+){
+
+if(
+cmpVariant === 1
+){
+
+invitation.style.background =
+"linear-gradient(145deg,#fff6ef,#ffe3d1)";
+
+invitation.style.color =
+"#663623";
+
+}
+
+
+else if(
+cmpVariant === 2
+){
+
+invitation.style.background =
+"linear-gradient(145deg,#971d26,#4f1017)";
+
+invitation.style.color =
+"#ffe5ad";
+
+}
+
+
+else{
+
+invitation.style.background =
+"linear-gradient(145deg,#f8efe3,#e9d2ad)";
+
+invitation.style.color =
+"#543c2d";
+
+}
+
+
+invitation.style.border =
+"6px double #ca8259";
+
+
+top.textContent =
+"✂️ 🎀 ✨";
+
+
+bottom.textContent =
+"★ GRAND OPENING ★";
+
+}
+
+
+
+/* PROFESSIONAL */
+
+else{
+
+if(
+cmpVariant === 1
+){
+
+invitation.style.background =
+"linear-gradient(145deg,#ffffff,#edf3f9)";
+
+invitation.style.color =
+"#233750";
+
+}
+
+
+else if(
+cmpVariant === 2
+){
+
+invitation.style.background =
+"linear-gradient(145deg,#102038,#253e61)";
+
+invitation.style.color =
+"#ffffff";
+
+}
+
+
+else{
+
+invitation.style.background =
+"linear-gradient(145deg,#f6f7f8,#dedfe2)";
+
+invitation.style.color =
+"#252525";
+
+}
+
+
+invitation.style.border =
+"4px solid #55718f";
+
+
+top.textContent =
+"◆";
+
+
+bottom.textContent =
+"◆ ◆ ◆";
+
+}
+
+
+}
+
+
+
+/* =============================
+ALIGNMENT
+============================= */
+
+function cmpAlign(
+alignment
+){
+
+
+const invitation =
+document.getElementById(
+"cmpInvitation"
+);
+
+
+invitation.style.textAlign =
+alignment;
+
+
+if(
+alignment ===
+"left"
+){
+
+invitation.style.alignItems =
+"flex-start";
+
+}
+
+
+else if(
+alignment ===
+"right"
+){
+
+invitation.style.alignItems =
+"flex-end";
+
+}
+
+
+else{
+
+invitation.style.alignItems =
+"center";
+
+}
+
+
+}
+
+
+
+/* =============================
+BACK
+============================= */
+
+function cmpBack(){
+
+
+document
+.getElementById(
+"cmp-editor-screen"
+)
+.style.display =
+"none";
+
+
+document
+.getElementById(
+"cmp-form-screen"
+)
+.style.display =
+"block";
+
+
+}
+
+
+
+/* =============================
+TIME
+============================= */
+
+function cmpFormatTime(
+value
+){
+
+
+if(!value){
+
+return "";
+
+}
+
+
+const parts =
+value.split(":");
+
+
+let hour =
+parseInt(
+parts[0],
+10
+);
+
+
+const minute =
+parts[1];
+
+
+const ampm =
+hour >= 12
+?
+"PM"
+:
+"AM";
+
+
+hour =
+hour % 12;
+
+
+hour =
+hour || 12;
+
+
+return (
+hour +
+":" +
+minute +
+" " +
+ampm
+);
+
+
+}
+
+
+
+/* =============================
+ORDINAL
+============================= */
+
+function cmpOrdinal(
+number
+){
+
+
+const value =
+parseInt(
+number,
+10
+);
+
+
+const mod100 =
+value % 100;
+
+
+if(
+mod100 >= 11 &&
+mod100 <= 13
+){
+
+return (
+value +
+"th"
+);
+
+}
+
+
+switch(
+value % 10
+){
+
+
+case 1:
+
+return (
+value +
+"st"
+);
+
+
+case 2:
+
+return (
+value +
+"nd"
+);
+
+
+case 3:
+
+return (
+value +
+"rd"
+);
+
+
+default:
+
+return (
+value +
+"th"
+);
+
+
+}
+
+
+}
+
+
+
+/* =============================
+DOWNLOAD
+============================= */
+
+function cmpDownload(){
+
+
+if(
+typeof html2canvas ===
+"undefined"
+){
+
+alert(
+"Download tool is still loading. Please try again."
+);
+
+return;
+
+}
+
+
+const invitation =
+document.getElementById(
+"cmpInvitation"
+);
+
+
+html2canvas(
+invitation,
+{
+
+scale:2,
+
+useCORS:true,
+
+backgroundColor:null
+
+}
+)
+.then(function(canvas){
+
+
+const link =
+document.createElement(
+"a"
+);
+
+
+link.download =
+"createmypostly-" +
+cmpSelectedEvent
+.toLowerCase()
+.replace(
+/ /g,
+"-"
+) +
+"-invitation.png";
+
+
+link.href =
+canvas.toDataURL(
+"image/png"
+);
+
+
+document.body.appendChild(
+link
+);
+
+
+link.click();
+
+
+document.body.removeChild(
+link
+);
+
+
+})
+.catch(function(error){
+
+
+console.error(
+error
+);
+
+
+alert(
+"Could not download invitation."
+);
+
+
+});
+
+
+}
+
+
+
+/* =============================
+START
+============================= */
+
+if(
+document.readyState ===
+"loading"
+){
+
+
+document.addEventListener(
+"DOMContentLoaded",
+cmpInit
+);
+
+
+}
+
+else{
+
+cmpInit();
+
+}
+
+
+})();
+
+</script>
